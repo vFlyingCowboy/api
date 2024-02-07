@@ -1,6 +1,6 @@
 import "reflect-metadata"
 import { DataSource } from "typeorm"
-import { Recipes } from "./entity/User"
+import { Recipes } from "./entity/Recipes"
 import "dotenv"
 import {configDotenv} from "dotenv";
 

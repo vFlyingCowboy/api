@@ -6,10 +6,13 @@
       ],
       "target": "es5",
       "module": "commonjs",
+      "esModuleInterop": true,
+      "resolveJsonModule": true,
       "moduleResolution": "node",
       "outDir": "./build",
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
-      "sourceMap": true
+      "sourceMap": true,
+     "allowSyntheticDefaultImports": true,
    }
 }

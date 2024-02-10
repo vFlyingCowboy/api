@@ -1,6 +1,6 @@
 import {AppDataSource} from "./data-source"
-import express, {Request, Response, Application} from 'express';
-import Router from "./routes/recipiesRouter"
+import express, {Request, Response, Application, urlencoded} from 'express';
+import RecipesRouter from "./routes/recipiesRouter"
 import {configDotenv} from "dotenv";
 import swaggerUi from "swagger-ui-express"
 import swaggerBuild from "../public/swagger.json"
@@ -12,10 +12,11 @@ const app: Application = express();
 const port = process.env.APP_PORT || 3000
 app.use(express.json());
 app.use(express.static("public"));
-app.use("/recipes", Router)
+app.use("/recipes", RecipesRouter)
 app.use('/docs', swaggerUi.serve, async (_req : Request, res: Response) => {
   return res.send(swaggerUi.generateHTML(await import('../public/swagger.json')))
 })
+app.use(urlencoded({extended: true}))
 
 app.get('/', (req: Request, res: Response) => {
     res.send({welcome: "Welcome to the API!"})
